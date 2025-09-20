@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Patient Records</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      width: 420px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .medical-icon {
+      font-size: 3rem;
+      color: #2ca58d;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      color: #2ca58d;
+      margin-bottom: 20px;
+    }
+
+    .role-select-btn, .login-btn {
+      background: linear-gradient(90deg, #0077b6, #2ca58d);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      margin: 8px 0;
+      font-weight: bold;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #0077b6;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 6px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="medical-icon"><i class="fa-solid fa-user-plus"></i></div>
+    <h2>Register</h2>
+    <p class="tagline">Choose your role to begin registration</p>
+
+    <div id="role-selection">
+      <button class="role-select-btn" onclick="showForm('student')">Student</button>
+      <button class="role-select-btn" onclick="showForm('doctor')">Doctor/Nurse</button>
+      <button class="role-select-btn" onclick="showForm('faculty')">Faculty Staff</button>
+    </div>
+
+    <!-- Student Form -->
+    <form id="student-form" class="hidden" onsubmit="return goToVerification(event)">
+      <label>Student ID Number</label>
+      <input type="text" required>
+      <label>Username</label>
+      <input type="text" required>
+      <label>Email</label>
+      <input type="email" required>
+      <label>Password</label>
+      <input type="password" required>
+      <label>Confirm Password</label>
+      <input type="password" required>
+      <button type="submit" class="login-btn">Continue</button>
+    </form>
+  </div>
+
+  <script>
+    function showForm(role) {
+      document.getElementById('role-selection').style.display = 'none';
+      document.querySelectorAll('form').forEach(f => f.classList.add('hidden'));
+      document.getElementById(role+'-form').classList.remove('hidden');
+    }
+    function goToVerification(event) {
+      event.preventDefault();
+      window.location.href = "{% url 'verification' %}";
+      return false;
+    }
+  </script>
+</body>
+</html>

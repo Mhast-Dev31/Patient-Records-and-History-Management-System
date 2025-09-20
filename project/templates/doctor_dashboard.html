@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 220px;
+      background: #0077b6;
+      color: #fff;
+      height: 100vh;
+      padding: 20px;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 22px;
+    }
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background: #2ca58d;
+    }
+
+    .main-content {
+      margin-left: 220px;
+      width: calc(100% - 220px);
+    }
+
+    .header {
+      background: #ffffff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+    .header h2 {
+      margin: 0;
+      color: #0077b6;
+    }
+
+    .logout-btn {
+      background: #e63946;
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .content {
+      padding: 30px;
+    }
+    .content h3 {
+      color: #0077b6;
+      margin-bottom: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+    th {
+      background: #0077b6;
+      color: #fff;
+    }
+    tr:hover {
+      background: #f1f9ff;
+    }
+
+    .btn {
+      background: #2ca58d;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>HealthCare+</h2>
+    <a href="#" class="active">Dashboard</a>
+    <a href="#">Add Record</a>
+    <a href="#">Patients</a>
+    <a href="#">Reports</a>
+    <a href="#">Settings</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h2>Doctor/Nurse Dashboard</h2>
+      <button class="logout-btn">Logout</button>
+    </div>
+
+    <div class="content">
+      <h3>Student Medical Records</h3>
+      <table>
+        <tr>
+          <th>Student</th>
+          <th>Date</th>
+          <th>Diagnosis</th>
+          <th>Treatment</th>
+          <th>Notes</th>
+        </tr>
+        <tr>
+          <td>student01</td>
+          <td>2025-09-16</td>
+          <td>Flu</td>
+          <td>Rest & Hydration</td>
+          <td>Follow-up in 3 days</td>
+        </tr>
+      </table>
+      <button class="btn">+ Add New Record</button>
+    </div>
+  </div>
+</body>
+</html>
